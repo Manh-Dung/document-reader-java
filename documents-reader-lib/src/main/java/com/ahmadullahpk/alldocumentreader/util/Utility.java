@@ -11,7 +11,7 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
 
-//import androidx.documentfile.provider.DocumentFile;
+import androidx.documentfile.provider.DocumentFile;
 
 import   com.ahmadullahpk.alldocumentreader.R;
 import com.ahmadullahpk.alldocumentreader.dataType.Model_Main;
@@ -108,14 +108,14 @@ public class  Utility {
     }
 
 
-//    public static void vibratePhone(Context context) {
-//        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-//        if (Build.VERSION.SDK_INT >= 26) {
-//            vibrator.vibrate(VibrationEffect.createOneShot(50, -1));
-//        } else {
-//            vibrator.vibrate(50);
-//        }
-//    }
+    public static void vibratePhone(Context context) {
+        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(50, -1));
+        } else {
+            vibrator.vibrate(50);
+        }
+    }
 
 
     public static String writeStringAsFile(Context context, String str, String str2) {
@@ -145,27 +145,27 @@ public class  Utility {
     }
 
 
-//    public static boolean deleteFileOrUri(Context context, Model_Main modelMain) {
-//        boolean delete;
-//        logCatMsg("path " + modelMain.getPath() + " :: Uri Path " + modelMain.getUriPath());
-//        try {
-//            if (!modelMain.getPath().isEmpty()) {
-//                delete = DocumentFile.fromFile(new File(modelMain.getPath())).delete();
-//                logCatMsg("file Deleted by file method.. " + delete);
-//            } else if (modelMain.getUriPath().isEmpty()) {
-//                return false;
-//            } else {
-//                delete = DocumentFile.fromSingleUri(context, Uri.parse(modelMain.getUriPath())).delete();
-//                logCatMsg("file Deleted by Uri method.. " + delete);
-//            }
-//            return delete;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            logCatMsg("Exception in Utility.deleteFileOrUri " + e.getMessage());
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
+    public static boolean deleteFileOrUri(Context context, Model_Main modelMain) {
+        boolean delete;
+        logCatMsg("path " + modelMain.getPath() + " :: Uri Path " + modelMain.getUriPath());
+        try {
+            if (!modelMain.getPath().isEmpty()) {
+                delete = DocumentFile.fromFile(new File(modelMain.getPath())).delete();
+                logCatMsg("file Deleted by file method.. " + delete);
+            } else if (modelMain.getUriPath().isEmpty()) {
+                return false;
+            } else {
+                delete = DocumentFile.fromSingleUri(context, Uri.parse(modelMain.getUriPath())).delete();
+                logCatMsg("file Deleted by Uri method.. " + delete);
+            }
+            return delete;
+        } catch (Exception e) {
+            e.printStackTrace();
+            logCatMsg("Exception in Utility.deleteFileOrUri " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 
 

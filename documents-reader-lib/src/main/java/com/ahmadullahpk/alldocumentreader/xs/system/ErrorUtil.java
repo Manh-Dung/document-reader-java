@@ -241,7 +241,7 @@ public class ErrorUtil
                             control.actionEvent(EventConstant.APP_ABORTREADING, true);
                             if (control.getMainFrame().isPopUpErrorDlg() && message == null)
                             {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                                /*AlertDialog.Builder builder = new AlertDialog.Builder(activity);
                                 builder.setMessage(err);
                                 builder.setCancelable(false);
                                 builder.setTitle(control.getMainFrame().getAppName());
@@ -254,7 +254,7 @@ public class ErrorUtil
                                     //control.getMainFrame().destroyEngine();
                                 });
                                 message = builder.create();
-                                message.show();
+                                message.show();*/
                             }
                             else
                             {

@@ -19,7 +19,6 @@ package com.ahmadullahpk.alldocumentreader.xs.fc.hslf.model;
 
 import com.ahmadullahpk.alldocumentreader.xs.fc.ddf.EscherContainerRecord;
 import com.ahmadullahpk.alldocumentreader.xs.fc.hslf.record.*;
-import com.ahmadullahpk.alldocumentreader.xs.fc.hslf.record.Record;
 import com.ahmadullahpk.alldocumentreader.xs.fc.hslf.usermodel.SlideShow;
 
 
@@ -170,7 +169,7 @@ public final class MovieShape extends Picture
         if (lst == null)
             return null;
 
-        Record[] r = lst.getChildRecords();
+        com.ahmadullahpk.alldocumentreader.xs.fc.hslf.record.Record[] r = lst.getChildRecords();
         for (int i = 0; i < r.length; i++)
         {
             if (r[i] instanceof ExMCIMovie)

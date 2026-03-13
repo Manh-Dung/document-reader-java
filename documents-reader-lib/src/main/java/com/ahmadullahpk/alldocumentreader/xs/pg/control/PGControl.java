@@ -367,7 +367,7 @@ public class PGControl extends AbstractControl
                         if (isShowingProgressDlg)
                         {
                             progressDialog = ProgressDialog.show(getActivity(), 
-                                own.getMainFrame().getAppName(), own.getMainFrame().getLocalString("DIALOG_LOADING"), 
+                                own.getMainFrame().getAppName(), "Loading, please wait...",
                                 false, false, null);
                                 progressDialog.show();
                         }

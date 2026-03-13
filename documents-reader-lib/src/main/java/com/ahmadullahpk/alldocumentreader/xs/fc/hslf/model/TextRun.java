@@ -23,7 +23,6 @@ import java.util.Vector;
 import com.ahmadullahpk.alldocumentreader.xs.fc.hslf.model.textproperties.AutoNumberTextProp;
 import com.ahmadullahpk.alldocumentreader.xs.fc.hslf.model.textproperties.TextPropCollection;
 import com.ahmadullahpk.alldocumentreader.xs.fc.hslf.record.*;
-import com.ahmadullahpk.alldocumentreader.xs.fc.hslf.record.Record;
 import com.ahmadullahpk.alldocumentreader.xs.fc.hslf.usermodel.RichTextRun;
 import com.ahmadullahpk.alldocumentreader.xs.fc.hslf.usermodel.SlideShow;
 import com.ahmadullahpk.alldocumentreader.xs.fc.util.StringUtil;
@@ -43,7 +42,7 @@ public final class TextRun
      * all text run records that follow TextHeaderAtom.
      * (there can be misc InteractiveInfo, TxInteractiveInfo and other records)
      */
-    protected Record[] _records;
+    com.ahmadullahpk.alldocumentreader.xs.fc.hslf.record.Record[] _records;
 
     /**
     * Constructs a Text Run from a Unicode text block
@@ -381,7 +380,7 @@ public final class TextRun
 
                 // Use the TextHeaderAtom to do the swap on the parent
                 RecordContainer parent = _headerAtom.getParentRecord();
-                Record[] cr = parent.getChildRecords();
+                com.ahmadullahpk.alldocumentreader.xs.fc.hslf.record.Record[] cr = parent.getChildRecords();
                 for (int i = 0; i < cr.length; i++)
                 {
                     // Look for TextBytesAtom
@@ -589,7 +588,7 @@ public final class TextRun
         RecordContainer runAtomsParent = _headerAtom.getParentRecord();
 
         // Add the new StyleTextPropAtom after the TextCharsAtom / TextBytesAtom
-        Record addAfter = _byteAtom;
+         com.ahmadullahpk.alldocumentreader.xs.fc.hslf.record.Record addAfter = _byteAtom;
         if (_byteAtom == null)
         {
             addAfter = _charAtom;
@@ -811,7 +810,7 @@ public final class TextRun
      *
      * @return text run records
      */
-    public Record[] getRecords()
+    public com.ahmadullahpk.alldocumentreader.xs.fc.hslf.record.Record[] getRecords()
     {
         return _records;
     }
@@ -883,12 +882,7 @@ public final class TextRun
         }
         return 0;
     }
-    
-    /**
-     * charcater startoffset
-     * @param charcterIndex
-     * @return
-     */
+
     public int getAutoNumberIndex(int characterIndex)
     {
         if (_records != null)

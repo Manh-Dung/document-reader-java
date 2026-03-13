@@ -43,8 +43,7 @@
             @transition/shared_element_enter_exit
         </item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-<!--        <item name="android:statusBarColor">#3D3D3D</item>-->
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">#3D3D3D</item>
         <item name="colorAccent">@color/navigation_text_color_selected</item>
     </style>
 

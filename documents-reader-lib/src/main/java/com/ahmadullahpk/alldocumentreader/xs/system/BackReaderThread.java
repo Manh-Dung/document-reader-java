@@ -6,6 +6,8 @@
  */
 package com.ahmadullahpk.alldocumentreader.xs.system;
 
+import android.util.Log;
+
 import com.ahmadullahpk.alldocumentreader.xs.constant.EventConstant;
 
 /**

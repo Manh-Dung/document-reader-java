@@ -236,7 +236,9 @@ public class PPTReader extends AbstractReader
         //control.actionEvent(EventConstant.PG_REPAINT_ID, null);
         if (!isGetThumbnail)
         {
-            control.actionEvent(EventConstant.APP_COUNT_PAGES_CHANGE_ID, null);
+            //ToDo: HoangCV tam thoi dong code nay, do no tra ra Exception
+            //control.actionEvent(EventConstant.APP_COUNT_PAGES_CHANGE_ID, null);
+            //ToDo: HoangCV tam thoi dong code nay, do no tra ra Exception
         }
     }
     

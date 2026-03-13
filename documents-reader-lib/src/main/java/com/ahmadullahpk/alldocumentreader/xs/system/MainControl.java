@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,14 +20,24 @@ import com.ahmadullahpk.alldocumentreader.xs.common.IOfficeToPicture;
 import com.ahmadullahpk.alldocumentreader.xs.common.ISlideShow;
 import com.ahmadullahpk.alldocumentreader.xs.common.picture.PictureKit;
 import com.ahmadullahpk.alldocumentreader.xs.constant.MainConstant;
+import com.ahmadullahpk.alldocumentreader.xs.fc.doc.DOCReader;
+import com.ahmadullahpk.alldocumentreader.xs.fc.doc.DOCXReader;
 import com.ahmadullahpk.alldocumentreader.xs.fc.doc.TXTKit;
+import com.ahmadullahpk.alldocumentreader.xs.fc.doc.TXTReader;
 import com.ahmadullahpk.alldocumentreader.xs.fc.pdf.PDFLib;
+import com.ahmadullahpk.alldocumentreader.xs.fc.pdf.PDFReader;
+import com.ahmadullahpk.alldocumentreader.xs.fc.ppt.PPTReader;
+import com.ahmadullahpk.alldocumentreader.xs.fc.ppt.PPTXReader;
+import com.ahmadullahpk.alldocumentreader.xs.fc.xls.XLSReader;
+import com.ahmadullahpk.alldocumentreader.xs.fc.xls.XLSXReader;
 import com.ahmadullahpk.alldocumentreader.xs.pg.control.PGControl;
 import com.ahmadullahpk.alldocumentreader.xs.pg.model.PGModel;
 import com.ahmadullahpk.alldocumentreader.xs.simpletext.model.IDocument;
 import com.ahmadullahpk.alldocumentreader.xs.ss.control.SSControl;
 import com.ahmadullahpk.alldocumentreader.xs.ss.model.baseModel.Workbook;
 import com.ahmadullahpk.alldocumentreader.xs.wp.control.WPControl;
+import com.ahmadullahpk.alldocumentreader.xs.wp.control.Word;
+import com.ahmadullahpk.alldocumentreader.xs.wp.model.WPDocument;
 
 public class MainControl extends AbstractControl {
     private IControl appControl;
@@ -123,8 +134,8 @@ public class MainControl extends AbstractControl {
                         }
                     } else if (MainControl.this.getMainFrame().isShowProgressBar()) {
                         post(() -> {
-                            MainControl.this.progressDialog = ProgressDialog.show(MainControl.this.getActivity(), MainControl.this.frame.getAppName(), MainControl.this.frame.getLocalString("DIALOG_LOADING"), false, false, null);
-                            MainControl.this.progressDialog.setOnKeyListener(MainControl.this.onKeyListener);
+//                            MainControl.this.progressDialog = ProgressDialog.show(MainControl.this.getActivity(), MainControl.this.frame.getAppName(), "Loading, please wait...", false, false, null);
+//                            MainControl.this.progressDialog.setOnKeyListener(MainControl.this.onKeyListener);
                         });
                     } else if (MainControl.this.customDialog != null) {
                         MainControl.this.customDialog.showDialog((byte) 2);
@@ -185,7 +196,7 @@ public class MainControl extends AbstractControl {
                     }
                 }
                 MainControl.this.actionEvent(26, false);
-                MainControl.this.actionEvent(19, null);
+                MainControl.this.actionEvent(19, false);
                 if (MainControl.this.applicationType != 3) {
                     MainControl.this.frame.updateToolsbarStatus();
                 } else if (!z) {

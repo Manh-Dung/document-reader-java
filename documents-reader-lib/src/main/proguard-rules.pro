@@ -21,3 +21,4 @@
 #-renamesourcefileattribute SourceFile
 
 -keep class com.ahmadullahpk.alldocumentreader.xs.** { *; }
+-keep class java.io.**
